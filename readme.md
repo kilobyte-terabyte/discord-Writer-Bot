@@ -78,7 +78,7 @@ At the time of writing this, the bot is now in over 7000 servers and (for the mo
 
 `!ask`: Asks you a random question about your character or your world, to get the creative juices flowing.
 
-`!challenge`: Generates a random writing challenge for you. e.g. "Write 400 words in 15 minutes". You can add the flags "easy", "normal", "hard", "hardcore", or "insane" to choose a pre-set wpm, or add your chosen wpm as the flag, or you can specify a time instead by adding a the time in minutes, prefixed with a "t", e.g. "t15"
+`!challenge`: Generates a random writing challenge for you. e.g. "Write 400 words in 15 minutes". You can add the flags "easy", "normal", "hard", "hardcore", or "insane" to choose a pre-set wpm, or add your chosen wpm as the flag, or you can specify a time instead by adding a the time in minutes, e.g. "15m"
 
 `!event`: Create server-wide writing events and compete against your fellow writers to see who can write the most
 
