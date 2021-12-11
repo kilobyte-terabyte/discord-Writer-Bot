@@ -1,11 +1,12 @@
 import discord, lib
 from discord.ext import commands
+from discord_slash import cog_ext, SlashContext
 from structures.db import Database
 from structures.user import User
 from structures.wrapper import CommandWrapper
 from structures.guild import Guild
 
-class Profile(commands.Cog, CommandWrapper):
+class Profile(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
@@ -15,13 +16,23 @@ class Profile(commands.Cog, CommandWrapper):
     @commands.guild_only()
     async def profile(self, context):
         """
+        Old profile command.
+        @param context:
+        @return:
+        """
+        await context.send('This command has been migrated to use a Slash Command. More info: https://github.com/cwarwicker/discord-Writer-Bot/wiki/Slash-Commands')
+
+    @commands.guild_only()
+    @cog_ext.cog_slash(name="profile", description="Displays your Writer Bot profile and statistics")
+    async def _profile(self, context: SlashContext):
+        """
         Displays your Writer-Bot profile information and statistics.
         """
 
         if not Guild(context.guild).is_command_enabled('profile'):
             return await context.send(lib.get_string('err:disabled', context.guild.id))
 
-        user = User(context.message.author.id, context.guild.id, context)
+        user = User(context.author.id, context.guild.id, context)
         goals = {
             'daily': user.get_goal_progress('daily')
         }
